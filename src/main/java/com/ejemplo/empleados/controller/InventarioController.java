@@ -15,12 +15,12 @@ public class InventarioController {
     @GetMapping
     public String listarInventario(Model model) {
         List<Inventario> productos = inventarioService.listarTodos();
-        System.out.println("=== DEBUG ===");
+        System.out.println("=== DEBUG JSP ===");
         System.out.println("Productos: " + (productos != null ? productos.size() : "null"));
-        System.out.println("============");
+        System.out.println("=================");
         model.addAttribute("productos", productos);
         model.addAttribute("titulo", "Lista de Inventario");
-        return "lista-inventario";
+        return "inventario";
     }
     @GetMapping("/nuevo")
     public String mostrarFormularioNuevo(Model model) {
@@ -98,6 +98,6 @@ public class InventarioController {
         }
         model.addAttribute("productos", productos);
         model.addAttribute("titulo", "Resultados de B?squeda");
-        return "lista-inventario";
+        return "inventario";
     }
 }
