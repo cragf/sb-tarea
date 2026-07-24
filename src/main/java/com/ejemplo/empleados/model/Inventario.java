@@ -15,7 +15,7 @@ public class Inventario {
     private String proveedor;
     @Column(name = "fecha_ingreso")
     private LocalDate fechaIngreso;
-    private Integer activo;
+    private Boolean activo;
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
     public String getNombreProducto() { return nombreProducto; }
@@ -30,6 +30,6 @@ public class Inventario {
     public void setProveedor(String proveedor) { this.proveedor = proveedor; }
     public LocalDate getFechaIngreso() { return fechaIngreso; }
     public void setFechaIngreso(LocalDate fechaIngreso) { this.fechaIngreso = fechaIngreso; }
-    public Integer getActivo() { return activo; }
-    public void setActivo(Integer activo) { this.activo = activo; }
+    public Boolean getActivo() { return activo; }
+    public void setActivo(Boolean activo) { this.activo = activo; }
 }
