@@ -82,7 +82,7 @@
                                                 <td><strong></strong></td>
                                                 <td><span class="badge bg-info bg-opacity-10 text-info"></span></td>
                                                 <td></td>
-                                                <td>JSP actualizado. Recarga la pagina en el navegador.{p.precio}</td>
+                                                <td>spring-boot:run{p.precio}</td>
                                                 <td></td>
                                                 <td>
                                                     <span class="badge  rounded-pill px-3 py-2">
