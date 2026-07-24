@@ -1,31 +1,52 @@
-﻿package com.ejemplo.empleados.model;
+package com.ejemplo.empleados.model;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 @Entity
 @Table(name = "empleados")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, length = 100)
+    private Integer idempleado;
     private String nombre;
-    @Column(nullable = false, length = 100)
-    private String apellido;
-    @Column(unique = true, nullable = false, length = 150)
-    private String email;
-    @Column(nullable = false, length = 50)
+    private String departamento;
     private String puesto;
-    @Column(name = "fecha_contratacion")
-    private LocalDate fechaContratacion;
-    @Column(nullable = false)
     private Double salario;
-    @Column(length = 20)
-    private String telefono;
-    private Boolean activo = true;
+    private String correo;
+    private Integer activo;
+    // getters y setters...
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getDepartamento() {
+        return departamento;
+    }
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+    public String getPuesto() {
+        return puesto;
+    }
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+    public Double getSalario() {
+        return salario;
+    }
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public Integer getActivo() {
+        return activo;
+    }
+    public void setActivo(Integer activo) {
+        this.activo = activo;
+    }
 }

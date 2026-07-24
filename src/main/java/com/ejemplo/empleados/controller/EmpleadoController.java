@@ -1,4 +1,4 @@
-﻿package com.ejemplo.empleados.controller;
+package com.ejemplo.empleados.controller;
 import com.ejemplo.empleados.model.Empleado;
 import com.ejemplo.empleados.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +27,7 @@ public class EmpleadoController {
         return "formulario-empleado";
     }
     @PostMapping("/guardar")
-    public String guardarEmpleado(@ModelAttribute Empleado empleado, 
-                                  RedirectAttributes redirectAttributes) {
+    public String guardarEmpleado(@ModelAttribute Empleado empleado, RedirectAttributes redirectAttributes) {
         try {
             empleadoService.guardar(empleado);
             redirectAttributes.addFlashAttribute("mensaje", "Empleado guardado exitosamente!");
@@ -40,7 +39,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
     @GetMapping("/editar/{id}")
-    public String mostrarFormularioEditar(@PathVariable Long id, Model model) {
+    public String mostrarFormularioEditar(@PathVariable Integer id, Model model) {
         Empleado empleado = empleadoService.buscarPorId(id)
             .orElseThrow(() -> new RuntimeException("Empleado no encontrado"));
         model.addAttribute("empleado", empleado);
@@ -49,9 +48,7 @@ public class EmpleadoController {
         return "formulario-empleado";
     }
     @PostMapping("/actualizar/{id}")
-    public String actualizarEmpleado(@PathVariable Long id, 
-                                     @ModelAttribute Empleado empleado,
-                                     RedirectAttributes redirectAttributes) {
+    public String actualizarEmpleado(@PathVariable Integer id, @ModelAttribute Empleado empleado, RedirectAttributes redirectAttributes) {
         try {
             empleadoService.actualizar(id, empleado);
             redirectAttributes.addFlashAttribute("mensaje", "Empleado actualizado exitosamente!");
@@ -63,7 +60,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
     @GetMapping("/eliminar/{id}")
-    public String eliminarEmpleado(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+    public String eliminarEmpleado(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         try {
             empleadoService.eliminar(id);
             redirectAttributes.addFlashAttribute("mensaje", "Empleado eliminado exitosamente!");
@@ -75,7 +72,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
     @GetMapping("/desactivar/{id}")
-    public String desactivarEmpleado(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+    public String desactivarEmpleado(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         try {
             empleadoService.desactivar(id);
             redirectAttributes.addFlashAttribute("mensaje", "Empleado desactivado exitosamente!");
@@ -87,9 +84,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
     @GetMapping("/buscar")
-    public String buscarEmpleados(@RequestParam(required = false) String nombre,
-                                  @RequestParam(required = false) String puesto,
-                                  Model model) {
+    public String buscarEmpleados(@RequestParam(required = false) String nombre, @RequestParam(required = false) String puesto, Model model) {
         List<Empleado> empleados;
         if (nombre != null && !nombre.isEmpty()) {
             empleados = empleadoService.buscarPorNombre(nombre);
@@ -99,7 +94,7 @@ public class EmpleadoController {
             empleados = empleadoService.listarTodos();
         }
         model.addAttribute("empleados", empleados);
-        model.addAttribute("titulo", "Resultados de Búsqueda");
+        model.addAttribute("titulo", "Resultados de B?squeda");
         return "lista-empleados";
     }
 }
