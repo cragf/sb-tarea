@@ -25,20 +25,20 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="" var="emp">
+                <c:forEach items="${empleados}" var="emp">
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>JSP actualizado. Recarga la pagina en el navegador.{emp.salario}</td>
-                        <td></td>
-                        <td></td>
+                        <td>${emp.idempleado}</td>
+                        <td>${emp.nombre}</td>
+                        <td>${emp.departamento}</td>
+                        <td>${emp.puesto}</td>
+                        <td>$${emp.salario}</td>
+                        <td>${emp.correo}</td>
+                        <td>${emp.activo == 1 ? 'Activo' : 'Inactivo'}</td>
                         <td>
-                            <a href="/empleados/editar/" class="btn btn-warning btn-sm">Editar</a>
-                            <a href="/empleados/eliminar/" class="btn btn-danger btn-sm">Eliminar</a>
-                            <c:if test="">
-                                <a href="/empleados/desactivar/" class="btn btn-secondary btn-sm">Desactivar</a>
+                            <a href="/empleados/editar/${emp.idempleado}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="/empleados/eliminar/${emp.idempleado}" class="btn btn-danger btn-sm">Eliminar</a>
+                            <c:if test="${emp.activo == 1}">
+                                <a href="/empleados/desactivar/${emp.idempleado}" class="btn btn-secondary btn-sm">Desactivar</a>
                             </c:if>
                         </td>
                     </tr>

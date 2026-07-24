@@ -6,6 +6,12 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idempleado;
+    public Integer getIdempleado() {
+        return idempleado;
+    }
+    public void setIdempleado(Integer idempleado) {
+        this.idempleado = idempleado;
+    }
     private String nombre;
     private String departamento;
     private String puesto;
